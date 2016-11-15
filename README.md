@@ -11,7 +11,7 @@ The simple register file is a behavioral VHDL netlist describing a parametric re
 
 A 64-entry register file with 32-bit registers has been synthesized with Synopsys Design Compiler and the design has been mapped on a 0.045 μm library.
 
-# Windowed_Register_File
+# Windowed Register File
 The windowed register file is a structure that allows context switching when a subroutine is called. 
 The following parameters are used:
 * M for the number of global registers
