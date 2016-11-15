@@ -9,7 +9,7 @@ The simple register file is a behavioral VHDL netlist describing a parametric re
 * enable signal active high
 * simultaneous read and write capabilities
 
-A 64-entry register file with 32-bit registers is synthesized with Synopsys Design Compiler and the design is mapped on a 0.045 um library.
+A 64-entry register file with 32-bit registers is synthesized with Synopsys Design Compiler and the design is mapped on a 0.045 μm library.
 
 # Windowed_Register_File
 The simple register file is transformed in a structure that allows context switching when a subroutine is called. 
@@ -25,6 +25,8 @@ moment in which the RF must SPILL/FILL to/from memory without the need of eccess
 These registers are SWP, CWP, CANSAVE, CANRESTORE and are used only internally.
 Four further signals at least are necessary as I/O of you RF: CALL and RETURN for subroutine
 management, and FILL and SPILL when data are to be moved from and to the memory respectively. 
+
+![alt text](https://github.com/ChristianPalmiero/Windowed_Register_File/blob/master/RF_Windowed.png "RF Windowed")
 
 #### Within a SUB
 For each subroutine the external blocks see only the active window. The whole
@@ -63,4 +65,4 @@ the RF rises the SPILL command. Once the fill is concluded also the CWP and the 
 
 Writing and reading to/from memory is not our concern. Finally, no controller is written here.
 
-A 64-entry register file with 32-bit registers is synthesized with Synopsys Design Compiler and the design is mapped on a 0.045 um library.
+A 64-entry register file with 32-bit registers is synthesized with Synopsys Design Compiler and the design is mapped on a 0.045 μm library.
