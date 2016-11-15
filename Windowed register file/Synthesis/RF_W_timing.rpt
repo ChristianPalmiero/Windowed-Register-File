@@ -1,0 +1,48 @@
+Information: Updating design information... (UID-85)
+Warning: Design 'register_file_top_entity' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+Information: Timing loop detected. (OPT-150)
+	CU/U12/B1 CU/U12/ZN CU/U58/B1 CU/U58/ZN CU/U57/A CU/U57/ZN CU/U68/A1 CU/U68/ZN 
+Information: Timing loop detected. (OPT-150)
+	CU/U3/A1 CU/U3/ZN CU/U9/A CU/U9/ZN CU/U12/B2 CU/U12/ZN CU/U58/B1 CU/U58/ZN 
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : register_file_top_entity
+Version: Z-2007.03-SP1
+Date   : Thu Apr 28 12:05:34 2016
+****************************************
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: typical   Library: NangateOpenCellLibrary
+Wire Load Model Mode: top
+
+  Startpoint: RF/data_out_port_a_tri_enable_reg[31]
+              (rising edge-triggered flip-flop)
+  Endpoint: data_out_port_a[31]
+            (output port)
+  Path Group: (none)
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  register_file_top_entity
+                     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  RF/data_out_port_a_tri_enable_reg[31]/CK (DFF_X1)       0.00 #     0.00 r
+  RF/data_out_port_a_tri_enable_reg[31]/Q (DFF_X1)        0.09       0.09 r
+  RF/data_out_port_a_tri[31]/Z (TBUF_X1)                  0.13       0.22 f
+  RF/data_out_port_a[31] (register_file_width_word32_in_out_reg_number6_local_reg_number10_f3_m10_depth64_address_width6)
+                                                          0.00       0.22 f
+  data_out_port_a[31] (out)                               0.00       0.22 f
+  data arrival time                                                  0.22
+  --------------------------------------------------------------------------
+  (Path is unconstrained)
+
+
+1

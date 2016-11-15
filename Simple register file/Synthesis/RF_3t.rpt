@@ -1,0 +1,64 @@
+Information: Updating design information... (UID-85)
+Warning: Design 'register_file' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : register_file
+Version: Z-2007.03-SP1
+Date   : Thu Apr 21 20:54:50 2016
+****************************************
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: typical   Library: NangateOpenCellLibrary
+Wire Load Model Mode: top
+
+  Startpoint: address_port_w[2]
+              (input port)
+  Endpoint: data_out_port_b_reg[9]
+            (rising edge-triggered flip-flop clocked by CLOCK)
+  Path Group: CLOCK
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  register_file      5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock (input port clock) (rise edge)     0.00       0.00
+  input external delay                     0.00       0.00 r
+  address_port_w[2] (in)                   0.00       0.00 r
+  U23977/ZN (INV_X1)                       0.04       0.04 f
+  U23637/ZN (XNOR2_X1)                     0.06       0.10 f
+  U23634/ZN (NOR4_X1)                      0.09       0.19 r
+  U23626/ZN (NAND4_X1)                     0.10       0.29 f
+  U23980/ZN (INV_X1)                       0.05       0.34 r
+  U23979/ZN (OAI21_X1)                     0.03       0.37 f
+  U23978/ZN (NAND2_X1)                     0.04       0.41 r
+  U21756/Z (BUF_X1)                        0.04       0.45 r
+  U21564/Z (BUF_X1)                        0.06       0.51 r
+  U21751/ZN (NAND2_X1)                     0.08       0.60 f
+  U23652/ZN (AOI211_X1)                    0.10       0.69 r
+  U24005/ZN (NAND4_X1)                     0.05       0.74 f
+  U23885/ZN (NOR4_X1)                      0.10       0.83 r
+  U23884/ZN (AOI221_X1)                    0.03       0.87 f
+  data_out_port_b_reg[9]/D (DFF_X1)        0.01       0.88 f
+  data arrival time                                   0.88
+
+  clock CLOCK (rise edge)                  2.00       2.00
+  clock network delay (ideal)              0.00       2.00
+  data_out_port_b_reg[9]/CK (DFF_X1)       0.00       2.00 r
+  library setup time                      -0.05       1.95
+  data required time                                  1.95
+  -----------------------------------------------------------
+  data required time                                  1.95
+  data arrival time                                  -0.88
+  -----------------------------------------------------------
+  slack (MET)                                         1.08
+
+
+1

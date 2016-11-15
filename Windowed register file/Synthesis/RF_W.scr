@@ -1,0 +1,20 @@
+##############################################################
+# analyzing and checking vhdl netlist#
+# here the analyze command is used for each file from bottom to top #
+##############################################################
+analyze -library WORK -format vhdl {/home/ms16.23/cap3/syn/constant.vhd}
+analyze -library WORK -format vhdl {/home/ms16.23/cap3/syn/address_filter.vhd }
+analyze -library WORK -format vhdl {/home/ms16.23/cap3/syn/control_unit.vhd }
+analyze -library WORK -format vhdl {/home/ms16.23/cap3/syn/register_file.vhd} 
+analyze -library WORK -format vhdl {/home/ms16.23/cap3/syn/register_file_top_entity.vhd}
+##############################################################
+# elaborating the top entity
+elaborate CFG_RF -library WORK 
+##########################################
+# first compilation, without constraints #
+compile -exact_map
+# saving report
+report_timing > RF_W_timing.rpt
+# saving files
+write -hierarchy -format ddc -output RF-W-STRUCT.ddc
+write -hierarchy -format vhdl -output RF-W-STRUCT.vhdl
