@@ -51,8 +51,7 @@ register file (otherwise see FILL below). This information (parent is in RF) is 
 CANRESTORE register.
 #### SPILL
 In case no more registers are available, a SPILL in memory must be performed for the
-oldest IN-LOCAL blocks. This operation means that the RF rises the SPILL signal to an ex-
-ternal block (e.g. the MMU) the reads the bus where the RF puts the data in the window to
+oldest IN-LOCAL blocks. This operation means that the RF rises the SPILL signal to an external block (e.g. the MMU) the reads the bus where the RF puts the data in the window to
 be spilled. This operation cannot be executed in one clock cycle: only one register at each clock cycle is spilled.
 The CWP that must be correctly updated (this is used as a circular buffer). At the end of this operation
 the SAVED WINDOW POINTER (SWP) holds the pointer to the RF address (or block
@@ -63,6 +62,6 @@ This is detected when the CWP (that is being decremented as during a return phas
 the SWP: this means that a further decrement of CWP must be preceeded by a FILL. For this
 the RF rises the SPILL command. Once the fill is concluded also the CWP and the SWP should be updated.
 
-Writing and reading to/from memory is not our concern. Finally, no controller is written here.
+Writing and reading to/from memory is not taken into account. Finally, no controller is written here.
 
 A 64-entry register file with 32-bit registers has been synthesized with Synopsys Design Compiler and the design has been mapped on a 0.045 μm library.
